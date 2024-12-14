@@ -17,6 +17,7 @@ export enum ChainId {
   ZORA_MAINNET = 7777777,
   WORLDCHAIN_MAINNET = 480,
   SEPOLIA = 11155111,
+  POLYGON_AMOY = 80002,
 }
 
 // subgraph does not support string enums, hence these constants
@@ -33,6 +34,7 @@ const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ZORA_MAINNET_NETWORK_NAME = 'zora-mainnet'
 const WORLDCHAIN_MAINNET_NETWORK_NAME = 'worldchain-mainnet'
 const SEPOLIA_NETWORK_NAME = 'sepolia'
+const POLYGON_AMOY = 'polygon-amoy'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -451,6 +453,26 @@ export function getSubgraphConfig(): SubgraphConfig {
         '0x1c7d4b196cb0c7b01d743fbc6116a902379c7238', // USDC
         '0xaa8e23fb1079ea71e0a56f48a2aa51851d8433d0', // USDT
         '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984', // UNI,
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork === POLYGON_AMOY) {
+    return {
+      factoryAddress: '0x62785F3344a988E2BB823109d06b6c52a8584ce6',
+      stablecoinWrappedNativePoolAddress: '0xA374094527e1673A86dE625aa59517c5dE346d32', // POL/USDC 1% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', // WMATIC
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xc2132D05D31c914a87C6611C10748AEb04B58e8F', // USDT
+        '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', // USDC
+      ],
+      whitelistTokens: [
+        '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', // WETH
+        '0xc2132D05D31c914a87C6611C10748AEb04B58e8F', // USDT
+        '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],
