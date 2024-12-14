@@ -458,7 +458,7 @@ export function getSubgraphConfig(): SubgraphConfig {
       poolsToSkip: [],
       poolMappings: [],
     }
-  } else if (selectedNetwork === POLYGON_AMOY) {
+  } else if (selectedNetwork == POLYGON_AMOY) {
     return {
       factoryAddress: '0x62785F3344a988E2BB823109d06b6c52a8584ce6',
       stablecoinWrappedNativePoolAddress: '0xA374094527e1673A86dE625aa59517c5dE346d32', // POL/USDC 1% pool
